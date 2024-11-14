@@ -1,0 +1,17 @@
+services:
+    gateway-shop:
+        container_name: service-test
+        build:
+            context: ./starter-template-laravel-hydra-repo # Folder tempat Dockerfile berada
+            dockerfile: ./Dockerfile # Nama file Dockerfile yang tepat
+        ports:
+            - "8003:8003"
+        volumes:
+            - .:/app
+        networks:
+            - my-network
+        restart: always
+
+networks:
+  my-network:
+    external: true
